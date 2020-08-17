@@ -10,18 +10,22 @@ const Display: React.FC<DisplayProps> = ({book}) => {
 
 
     return (
-        <main className="container">
-                <div className="col-md-2 mx-4"onClick={() => history.push(`/details/${book.id}`)}></div>
-            <section className="row justify-content-center mt-5">
-                <div className = "col-10">
-                    <h6 className="mx-2">{book.title} </h6>
-                    <h6 className="mx-2">{book.author} </h6>
-                    <h6 className="mx-2">{book.price} </h6>
-                    <h6 className="mx-2">{book.title} </h6>
-                </div>
-            </section>
-         
-        </main>
+
+        <div className="col-md-5 mx-4"onClick={() => history.push(`/details/${book.id}`)}>
+        <div className= "mx-2"> {book.title}</div>
+        <div>
+            <div className="mx-2">
+                <h6>{book.author}</h6>
+            </div>
+            <div  className="mx-2">
+                <h6>{book.name}</h6>
+            </div>
+            <div  className="mx-2">
+                <h6>${book.price}</h6>
+            </div>
+        </div>
+    </div>
+
     );
 }
 

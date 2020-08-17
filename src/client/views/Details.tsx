@@ -40,6 +40,7 @@ const Details: React.FC<DetailsProps> = (props) => {
                     <h6>{book?.title}</h6>
                     <h6>{book?.author}</h6>
                     <h6>{book?.price}</h6>
+                    <h6>{book?.name}</h6>
                     <h6>{moment(book?._created).format("MMM Do YYYY")}</h6>
                 </div>
 

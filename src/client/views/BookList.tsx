@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
-import { IBook } from '../utils/interfaces';
+import { IBook, ICategory } from '../utils/interfaces';
 import apiService from '../utils/api-service';
 import Navbar from '../components/Navbar';
 import Display from '../components/Display';
@@ -8,16 +8,29 @@ import Display from '../components/Display';
 const BookList: React.FC<BookListProps> = (props) => {
 
     const [books, setBooks] = useState<IBook[]>([]);
+    const [categories, setCategories] = useState<ICategory[]>([]);
 
-    const getBooks = async () => {
+    const getData = async () => {
+
+        const categories = await apiService('/api/categories');
         const books = await apiService('/api/books');
         setBooks(books);
+        setCategories(categories);
     };
 
-    
     useEffect(() => {
-        getBooks();
+        getData();
     }, []);
+
+    // const getBooks = async () => {
+    //     const books = await apiService('/api/books');
+    //     setBooks(books);
+    // };
+
+    // useEffect(() => {
+    //     getBooks();
+    // }, []);
+
 
     return (
         <main className="container">

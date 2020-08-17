@@ -4,11 +4,11 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Pizza from './views/Home';
 import Books from './views/BookList';
 import Details from './views/Details';
-// import Edit from './views/Edit';
+import Edit from './views/Edit';
 import Add from './views/Add';
-// import Login from './views/Login';
-// import Register from './views/Register';
-// import PrivateRoute from './components/PrivateRoute';
+import Login from './views/Login';
+import Register from './views/Register';
+import PrivateRoute from './components/PrivateRoute';
 
 const App: React.FC<AppProps> = (props) => {
 	return (
@@ -24,29 +24,29 @@ const App: React.FC<AppProps> = (props) => {
 				</Route>
 
 
-				<Route exact path="/details/:bookid">
+				<PrivateRoute exact path="/details/:bookid">
 					<Details />
-				</Route> 
+				</PrivateRoute> 
 
 
-				 {/* <PrivateRoute exact path="/edit/:bookid">
+				 <PrivateRoute exact path="/edit/:bookid">
 					<Edit />
-				</PrivateRoute> */}
+				</PrivateRoute> 
 
 
-				<Route exact path="/add">
+				<PrivateRoute exact path="/add">
 					<Add />
-				</Route> 
+				</PrivateRoute> 
 
 
-				{/* <Route exact path="/login">
+				<Route exact path="/login">
 					<Login />
 				</Route>
 
 
 				<Route exact path="/register">
 					<Register />
-				</Route>  */}
+				</Route> 
 
 			</Switch>
 		</BrowserRouter>
