@@ -14,3 +14,9 @@ export interface IBook {
     _created: Date;
 
 }
+
+export interface ICategory {
+    id?: number;
+    name?: string;
+    _created?: Date;
+}

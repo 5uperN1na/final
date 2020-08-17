@@ -2,10 +2,10 @@ import * as React from 'react';
 import { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Pizza from './views/Home';
-// import Books from './views/BookList';
-// import Details from './views/Details';
+import Books from './views/BookList';
+import Details from './views/Details';
 // import Edit from './views/Edit';
-// import Add from './views/Add';
+import Add from './views/Add';
 // import Login from './views/Login';
 // import Register from './views/Register';
 // import PrivateRoute from './components/PrivateRoute';
@@ -18,35 +18,35 @@ const App: React.FC<AppProps> = (props) => {
 				<Route exact path="/">
 					<Pizza />
 				</Route>
-{/* 
+
 				<Route exact path="/booklist">
 					<Books />
-				</Route> */}
+				</Route>
 
 
-				{/* <PrivateRoute exact path="/details/:bookid">
+				<Route exact path="/details/:bookid">
 					<Details />
-				</PrivateRoute>
+				</Route> 
 
 
-				<PrivateRoute exact path="/edit/:bookid">
+				 {/* <PrivateRoute exact path="/edit/:bookid">
 					<Edit />
-				</PrivateRoute>
+				</PrivateRoute> */}
 
 
-				<PrivateRoute exact path="/add">
+				<Route exact path="/add">
 					<Add />
-				</PrivateRoute> 
+				</Route> 
 
 
-				<Route exact path="/login">
+				{/* <Route exact path="/login">
 					<Login />
 				</Route>
 
 
 				<Route exact path="/register">
 					<Register />
-				</Route> */}
+				</Route>  */}
 
 			</Switch>
 		</BrowserRouter>
