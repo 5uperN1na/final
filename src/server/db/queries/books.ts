@@ -2,12 +2,12 @@ import { Query } from '../index';
 
 //get all
 
-const all = () => Query ('SELECT books.*, categories.name from books JOIN categories on categories.id=books.categorid');
+const all = () => Query ('SELECT books.*, categories.name from books JOIN categories on categories.id=books.categoryid');
 
 
 //get one
 
-const one = (id: number) => Query ('SELECT books.*, categories.name from books JOIN categories on categories.id=books.categorid WHERE books.id = ?', [id]);
+const one = (id: number) => Query ('SELECT books.*, categories.name from books JOIN categories on categories.id=books.categoryid WHERE books.id = ?', [id]);
 
 
 //insert one
@@ -19,12 +19,12 @@ return Query ('INSERT into books (categoryid, title, author, price) VALUES (?, ?
 
 //delete one
 
-const deleteBook = (id: number) => Query ('DELETE books WHERE id = ?', [id]);
-
+const deleteBook = (id: number) => Query ('DELETE FROM books WHERE id = ?', [id]);
 
 //edit one
 
-const edit = (id: number, categoryid: number, title: string, author: string, price: number) => Query ('UPDATE books SET categoryid = ?, title = ?, author = ?, price = ? WHERE id = ?', [categoryid, title, author, price, id]); 
+const edit = (id: number, categoryid: number, title: string, author: string, price: number) => Query('UPDATE books SET categoryid = ?, title = ?, author = ?, price = ? WHERE id = ?', [categoryid, title, author, price, id]);
+
 
 
 export default {
