@@ -1,4 +1,5 @@
 import * as express from 'express';
+import * as passport from 'passport';
 import * as path from 'path';
 import db from '../../db';
 
@@ -29,7 +30,7 @@ router.get('/:id?', async (req, res) => {
 
 //post route
 
-router.post('/', async (req, res) => {
+router.post('/', passport.authenticate('jwt'), async (req, res) => {
 
     const newBook = req.body;
     try {
@@ -49,7 +50,7 @@ router.post('/', async (req, res) => {
 
 //delete route
 
-router.delete('/:id?', async (req, res) => {
+router.delete('/:id?', passport.authenticate('jwt'), async (req, res) => {
     const id = Number(req.params.id);
     try {
             await db.books.deleteBook(id);
@@ -66,7 +67,7 @@ router.delete('/:id?', async (req, res) => {
 
 //edit route 
 
-router.put('/:id?', async (req, res) => {
+router.put('/:id?', passport.authenticate('jwt'), async (req, res) => {
     const id = Number(req.params.id);
     const editBook = req.body;
 
