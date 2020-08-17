@@ -1,10 +1,14 @@
 import * as mysql from 'mysql';
-import * as config from '../config';
-import * as books from './queries/books';
-import * as users from './queries/users';
-import * as categories from './queries/categories';
+import config from '../config';
+import books from './queries/books';
+import users from './queries/users';
+import categories from './queries/categories';
+
+//sql connection
 
 const pool = mysql.createPool(config.mysql);
+
+//query helper function
 
 export const Query = <T = any>(query: string, values?: any) => {
     return new Promise<T>((resolve, reject) => {
@@ -21,7 +25,7 @@ export const Query = <T = any>(query: string, values?: any) => {
 };
 
 export default {
-    users,
     books,
-    categories
+    categories,
+    users
 }
